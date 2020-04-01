@@ -33,4 +33,10 @@
     </Resource>
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="MovieCatalog.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>
