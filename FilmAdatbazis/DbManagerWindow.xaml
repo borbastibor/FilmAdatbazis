@@ -1,0 +1,140 @@
+﻿<Window x:Class="FilmAdatbazis.DbManagerWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FilmAdatbazis"
+        mc:Ignorable="d"
+        Title="Film adatbázis"
+        Height="475"
+        Width="800"
+        WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <ToolBarTray>
+            <ToolBar HorizontalAlignment="Left" Height="30" Margin="0,0,0,0" VerticalAlignment="Stretch" >
+                <Button x:Name="AddToolButton" HorizontalAlignment="Left" Click="OnClick_AddToolBtn" ToolTip="Új rekord beszúrása">
+                    <Image VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="16" Width="16" Source="/ToolBarIcons/add-icon.png"/>
+                </Button>
+                <Button x:Name="EditToolButton" HorizontalAlignment="Left" Click="OnClick_EditToolBtn" ToolTip="Rekord szerkesztése">
+                    <Image VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="16" Width="16" Source="/ToolBarIcons/edit-icon.png"/>
+                </Button>
+                <Button x:Name="DeleteToolButton" HorizontalAlignment="Left" Click="OnClick_DeleteToolBtn" ToolTip="Rekord törlése">
+                    <Image VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="16" Width="16" Source="/ToolBarIcons/trash-icon.png"/>
+                </Button>
+            </ToolBar>
+        </ToolBarTray>
+
+        <TabControl x:Name="TabCtrl" HorizontalAlignment="Stretch" Margin="5,5,5,5" VerticalAlignment="Stretch" Grid.Row="1" Height="385">
+            <TabItem x:Name="FilmTabItem" Header="Filmek" Loaded="OnFilmsLoaded">
+                <Grid Background="#FFE5E5E5">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="17*"/>
+                        <RowDefinition Height="176*"/>
+                    </Grid.RowDefinitions>
+                    <ListView x:Name="FilmListView" Margin="0,0,0,0" Grid.Row="1" ToolTip="Jobb egér gomb - Menü">
+                        <ListView.ContextMenu>
+                            <ContextMenu>
+                                <MenuItem Header="Szerkeszt" x:Name="EditFilmCMenu" Click="EditFilmCMenu_OnClick"/>
+                                <MenuItem Header="Töröl" x:Name="DeleteFilmCMenu" Click="DeleteFilmCMenu_OnClick"/>
+                                <Separator/>
+                                <MenuItem Header="Létrehozás" x:Name="CreateFilmCMenu" Click="CreateFilmCMenu_OnClick"/>
+                            </ContextMenu>
+                        </ListView.ContextMenu>
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn Header="Id" DisplayMemberBinding="{Binding Id}" />
+                                <GridViewColumn Header="Cím" DisplayMemberBinding="{Binding Title}" />
+                                <GridViewColumn Header="Megjelenés éve" DisplayMemberBinding="{Binding ReleaseYear}" />
+                                <GridViewColumn Header="Kategória" DisplayMemberBinding="{Binding Genre.Genre}" />
+                                <GridViewColumn Header="Rendező" DisplayMemberBinding="{Binding Director.Director}" />
+                                <GridViewColumn Header="Hossz (perc)" DisplayMemberBinding="{Binding Duration}" />
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                    <TextBox x:Name="FilmSearchText" HorizontalAlignment="Stretch" Margin="0,5,0,5" Text="Keresendő szöveg..." TextWrapping="Wrap" VerticalAlignment="Stretch" ToolTip="Nyomj Enter-t a keresés indításához!" KeyDown="OnFilmTextInput" GotKeyboardFocus="OnGotKbdFocus" GotMouseCapture="OnGotMouseFocus"/>
+                </Grid>
+            </TabItem>
+            <TabItem x:Name="DirTabItem" Header="Rendezők" Loaded="OnDirectorsLoaded">
+                <Grid Background="#FFE5E5E5">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="17*"/>
+                        <RowDefinition Height="176*"/>
+                    </Grid.RowDefinitions>
+                    <ListView x:Name="DirListView" Margin="0,0,0,0" Grid.Row="1" ToolTip="Jobb egér gomb - Menü">
+                        <ListView.ContextMenu>
+                            <ContextMenu>
+                                <MenuItem Header="Szerkeszt" x:Name="EditDirCMenu" Click="EditDirCMenu_OnClick"/>
+                                <MenuItem Header="Töröl" x:Name="DeleteDirCMenu" Click="DeleteDirCMenu_OnClick"/>
+                                <Separator/>
+                                <MenuItem Header="Létrehozás" x:Name="CreateDirCMenu" Click="CreateDirCMenu_OnClick"/>
+                            </ContextMenu>
+                        </ListView.ContextMenu>
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn Header="Id" DisplayMemberBinding="{Binding Id}" />
+                                <GridViewColumn Header="Rendező" DisplayMemberBinding="{Binding Director}" />
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                    <TextBox x:Name="DirSearchText" HorizontalAlignment="Stretch" Margin="0,5,0,5" Text="Keresendő szöveg..." TextWrapping="Wrap" VerticalAlignment="Stretch" ToolTip="Nyomj Enter-t a keresés indításához!" KeyDown="OnDirTextInput" GotKeyboardFocus="OnGotKbdFocus" GotMouseCapture="OnGotMouseFocus"/>
+                </Grid>
+            </TabItem>
+            <TabItem x:Name="GenreTabItem" Header="Kategóriák" Loaded="OnGenreLoaded">
+                <Grid Background="#FFE5E5E5">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="17*"/>
+                        <RowDefinition Height="176*"/>
+                    </Grid.RowDefinitions>
+                    <ListView x:Name="GenreListView" Margin="0,0,0,0" Grid.Row="1" ToolTip="Jobb egér gomb - Menü">
+                        <ListView.ContextMenu>
+                            <ContextMenu>
+                                <MenuItem Header="Szerkeszt" x:Name="EditGenreCMenu" Click="EditGenreCMenu_OnClick"/>
+                                <MenuItem Header="Töröl" x:Name="DeleteGenreCMenu" Click="DeleteGenreCMenu_OnClick"/>
+                                <Separator/>
+                                <MenuItem Header="Létrehozás" x:Name="CreateGenreCMenu" Click="CreateGenreCMenu_OnClick"/>
+                            </ContextMenu>
+                        </ListView.ContextMenu>
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn Header="Id" DisplayMemberBinding="{Binding Id}" />
+                                <GridViewColumn Header="Kategória" DisplayMemberBinding="{Binding Genre}" />
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                    <TextBox x:Name="GenreSearchText" HorizontalAlignment="Stretch" Margin="0,5,0,5" Text="Keresendő szöveg..." TextWrapping="Wrap" VerticalAlignment="Stretch" ToolTip="Nyomj Enter-t a keresés indításához!" KeyDown="OnGenreTextInput" GotKeyboardFocus="OnGotKbdFocus" GotMouseCapture="OnGotMouseFocus"/>
+                </Grid>
+            </TabItem>
+            <TabItem x:Name="UsersTabItem" Header="Felhasználók" Loaded="OnUsersLoaded">
+                <Grid Background="#FFE5E5E5">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="17*"/>
+                        <RowDefinition Height="176*"/>
+                    </Grid.RowDefinitions>
+                    <ListView x:Name="UsersListView" Margin="0,0,0,0" Grid.Row="1" ToolTip="Jobb egér gomb - Menü">
+                        <ListView.ContextMenu>
+                            <ContextMenu>
+                                <MenuItem Header="Szerkeszt" x:Name="EditUserCMenu" Click="EditUserCMenu_OnClick"/>
+                                <MenuItem Header="Töröl" x:Name="DeleteUserCMenu" Click="DeleteUserCMenu_OnClick"/>
+                                <Separator/>
+                                <MenuItem Header="Létrehozás" x:Name="CreateUserCMenu" Click="CreateUserCMenu_OnClick"/>
+                            </ContextMenu>
+                        </ListView.ContextMenu>
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn Header="Id" DisplayMemberBinding="{Binding Id}" />
+                                <GridViewColumn Header="Felhasználónév" DisplayMemberBinding="{Binding Username}" />
+                                <GridViewColumn Header="Jelszó" DisplayMemberBinding="{Binding Password}" />
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                    <TextBox x:Name="UsersSearchText" HorizontalAlignment="Stretch" Margin="0,5,0,5" Text="Keresendő szöveg..." TextWrapping="Wrap" VerticalAlignment="Stretch" ToolTip="Nyomj Enter-t a keresés indításához!" KeyDown="OnUsersTextInput" GotKeyboardFocus="OnGotKbdFocus" GotMouseCapture="OnGotMouseFocus"/>
+                </Grid>
+            </TabItem>
+        </TabControl>
+
+    </Grid>
+</Window>
