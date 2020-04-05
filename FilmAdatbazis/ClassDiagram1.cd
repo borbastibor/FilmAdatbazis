@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="FilmAdatbazis.App" Collapsed="true">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>App.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FilmAdatbazis.DbManagerWindow">
+    <Position X="4" Y="0.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>CCADgAAAAnABBSoRAACXAiQAwgAggCgkggAAFAAAAIA=</HashCode>
+      <FileName>DbManagerWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="FilmAdatbazis.DirectorsModel">
+    <Position X="2.25" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACABAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\DirectorsModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FilmAdatbazis.Dialogs.DirectorsDialog">
+    <Position X="8.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAAAAAAAAAAAgACAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Dialogs\DirectorsDialog.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="FilmAdatbazis.MovieCatalogContext">
+    <Position X="0.5" Y="1.25" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAADAAAQAQEAAAAAIAAAAAEAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Data\MovieCatalogContext.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FilmAdatbazis.GenreModel">
+    <Position X="2.25" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAEAAAAAIAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\GenreModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FilmAdatbazis.MainWindow">
+    <Position X="6.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAg=</HashCode>
+      <FileName>MainWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="FilmAdatbazis.MovieModel">
+    <Position X="0.5" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACABAAAAACIEAAAAMAAAAAAAAAAAAAAAAAAAEAAAA=</HashCode>
+      <FileName>Models\MovieModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FilmAdatbazis.UsersModel">
+    <Position X="0.5" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAQAAAAAAAAAAAAACAAAAAAAAAAA=</HashCode>
+      <FileName>Models\UsersModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FilmAdatbazis.Dialogs.GenreDialog">
+    <Position X="10.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAgAAAAAAAAAAgACAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Dialogs\GenreDialog.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="FilmAdatbazis.Dialogs.MoviesDialog">
+    <Position X="10.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAAAAAAAAAgAgBCAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Dialogs\MoviesDialog.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="FilmAdatbazis.Dialogs.UsersDialog">
+    <Position X="8.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAAgACAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Dialogs\UsersDialog.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="FilmAdatbazis.ValidationRules.NumberValidationRule">
+    <Position X="12.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ValidationRules\NumberValidationRule.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FilmAdatbazis.ValidationRules.TextBoxValidationRule">
+    <Position X="12.25" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ValidationRules\TextBoxValidationRule.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FilmAdatbazis.ValidationRules.YearValidationRule">
+    <Position X="12.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ValidationRules\YearValidationRule.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

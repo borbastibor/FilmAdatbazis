@@ -68,12 +68,16 @@ namespace FilmAdatbazis.Dialogs
         // Eseménykezelő a Mentés gombhoz
         private void Save_OnClick(object sender, RoutedEventArgs e)
         {
-            // Ha érvényes az adatbevitel, akkor true-t ad vissza és visszatér az adatbáziskezelő ablakhoz
-            if (!IsValid(this)) return;
-            else
+            if (titleTextBox.Text == null || titleTextBox.Text == "")
             {
-                this.DialogResult = true;
+                titleTextBox.Text = "  ";
             }
+            // Ha érvényes az adatbevitel, akkor true-t ad vissza és visszatér az adatbáziskezelő ablakhoz
+            if (!IsValid(this))
+            {
+                return;
+            }
+            DialogResult = true;
         }
 
         // Segédfüggvény a bevit adatok validációjához

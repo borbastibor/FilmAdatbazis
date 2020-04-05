@@ -30,15 +30,25 @@ namespace FilmAdatbazis.Dialogs
             }
         }
 
+        // Eseménykezelő a mentés gombhoz
         private void Save_OnClick(object sender, RoutedEventArgs e)
         {
+            // Validációs eljárás meghívása a bevitt adatok ellenőrzésére
+            // A rendezőnév textbox null értékének ellenőrzése
+            if (directorTextBox.Text == null || directorTextBox.Text == "")
+            {
+                directorTextBox.Text = "  ";
+            }
+            // Ha rossz adatok akkor kilép
             if (!IsValid(this)) return;
             else
             {
-                this.DialogResult = true;
+                // Ha jók a bevitt adatok, akkor vissza az adatbáziskezelő ablakba true eredménnyel
+                DialogResult = true;
             }
         }
 
+        // Segédfüggvény a beviteli mezők végigjárására és validálására
         bool IsValid(DependencyObject node)
         {
             if (node != null)

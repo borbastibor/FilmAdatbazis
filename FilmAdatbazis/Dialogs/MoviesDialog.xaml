@@ -57,7 +57,7 @@
                  VerticalContentAlignment="Center"
                  Margin="0,2,10,2"
                  Height="21"
-                 InputScope="Number">
+                 InputScope="Number" ToolTip="1900 és 3000 közötti érték lehet">
             <TextBox.Text>
                 <Binding ElementName="yearTextBox"
                          Path="Tag"
@@ -79,7 +79,7 @@
                  VerticalContentAlignment="Center"
                  Margin="0,2,10,2"
                  Height="21"
-                 InputScope="Number">
+                 InputScope="Number" ToolTip="0 és 10000 közötti érték lehet">
             <TextBox.Text>
                 <Binding ElementName="durationTextBox"
                          Path="Tag"

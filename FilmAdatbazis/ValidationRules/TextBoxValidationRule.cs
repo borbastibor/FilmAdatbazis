@@ -13,7 +13,7 @@ namespace FilmAdatbazis.ValidationRules
             string str = value as string;
 
             // Nem lett adat beírva?
-            if (string.IsNullOrEmpty(str))
+            if (string.IsNullOrWhiteSpace(str))
             {
                 return new ValidationResult(false, "Nincs megadva érték!");
             }

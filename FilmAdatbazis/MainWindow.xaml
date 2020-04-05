@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:FilmAdatbazis"
+        xmlns:local="clr-namespace:FilmAdatbazis" xmlns:local1="clr-namespace:FilmAdatbazis.ValidationRules"
         mc:Ignorable="d"
         Title="Belépés a film adatbázisba"
         Height="300"
@@ -16,7 +16,23 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
         <Label Content="Felhasználónév" HorizontalAlignment="Stretch" Margin="20,5,20,0" VerticalAlignment="Top" FontWeight="Bold"/>
-        <TextBox x:Name="username" HorizontalAlignment="Stretch" Margin="20,30,20,20" TextWrapping="Wrap" VerticalAlignment="Top" Width="Auto" Height="25" VerticalContentAlignment="Center"/>
+        <TextBox x:Name="username"
+                 HorizontalAlignment="Stretch"
+                 Margin="20,30,20,20"
+                 TextWrapping="Wrap"
+                 VerticalAlignment="Top"
+                 Width="Auto" Height="25"
+                 VerticalContentAlignment="Center">
+            <TextBox.Text>
+                <Binding ElementName="username"
+                         Path="Tag"
+                         UpdateSourceTrigger="PropertyChanged">
+                    <Binding.ValidationRules>
+                        <local1:TextBoxValidationRule />
+                    </Binding.ValidationRules>
+                </Binding>
+            </TextBox.Text>
+        </TextBox>
         <Label Content="Jelszó" HorizontalAlignment="Stretch" Margin="20,5,20,0" Grid.Row="1" VerticalAlignment="Top" FontWeight="Bold"/>
         <PasswordBox x:Name="password" HorizontalAlignment="Stretch" Margin="20,30,20,20" Grid.Row="1" VerticalAlignment="Top" Height="25" VerticalContentAlignment="Center"/>
         <Button Content="Belépés" HorizontalAlignment="Stretch" Margin="20,20,20,0" Grid.Row="2" VerticalAlignment="Stretch" FontSize="18" FontWeight="Bold" Click="OnClickButton" Padding="1,10,1,10"/>

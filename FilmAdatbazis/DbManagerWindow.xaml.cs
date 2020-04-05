@@ -376,8 +376,9 @@ namespace FilmAdatbazis
             UsersDialog usersdlg = new UsersDialog(null);
             usersdlg.Owner = this;
             usersdlg.ShowDialog();
+            bool result = DialogResult.HasValue ? (bool)usersdlg.DialogResult : false;
             // Mentés esetén mentjük az adatokat az adatbázisba
-            if ((bool)usersdlg.DialogResult)
+            if (result)
             {
                 UsersModel newuser = new UsersModel()
                 {
@@ -436,8 +437,9 @@ namespace FilmAdatbazis
             DirectorsDialog dirdlg = new DirectorsDialog(null);
             dirdlg.Owner = this;
             dirdlg.ShowDialog();
+            bool result = DialogResult.HasValue ? (bool)dirdlg.DialogResult : false;
             // Mentés esetén mentjük az adatokat az adatbázisba
-            if ((bool)dirdlg.DialogResult)
+            if (result)
             {
                 DirectorsModel newdir = new DirectorsModel()
                 {
@@ -494,8 +496,9 @@ namespace FilmAdatbazis
             GenreDialog genredlg = new GenreDialog(null);
             genredlg.Owner = this;
             genredlg.ShowDialog();
+            bool result = DialogResult.HasValue ? (bool)genredlg.DialogResult : false;
             // Mentés esetén mentjük az adatokat az adatbázisba
-            if ((bool)genredlg.DialogResult)
+            if (result)
             {
                 GenreModel newgenre = new GenreModel()
                 {
@@ -554,8 +557,9 @@ namespace FilmAdatbazis
             MoviesDialog moviedlg = new MoviesDialog(dirlist, genrelist, null);
             moviedlg.Owner = this;
             moviedlg.ShowDialog();
+            bool result = DialogResult.HasValue ? (bool)moviedlg.DialogResult : false;
             // Mentés esetén frissítjük az adatokat az adatbázisban
-            if ((bool)moviedlg.DialogResult)
+            if (result)
             {
                 MovieModel newmovie = new MovieModel();
                 newmovie.Title = moviedlg.titleTextBox.Text;

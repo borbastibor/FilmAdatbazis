@@ -18,8 +18,8 @@ namespace FilmAdatbazis.ValidationRules
                 return new ValidationResult(false, "Nem számot adott meg!");
             }
 
-            // A megadott szám az 1000 - 3000 között van
-            if (number < 1000 || number > 3000)
+            // A megadott szám az 1900 - 3000 között van
+            if (number < 1900 || number > 3000)
             {
                 return new ValidationResult(false, "A megadott szám 1000 és 3000 között kell legyen!");
             }
